@@ -52,15 +52,18 @@ public class BetterCharacterController : MonoBehaviour
         //Move Character
         //rb.velocity = new Vector2(horizInput * speed * Time.fixedDeltaTime, rb.velocity.y);
 
-        if(Input.GetKey(KeyCode.LeftArrow) || (Input.GetKey(KeyCode.A)))
+        if (grounded)
         {
-            rb.AddForce(Vector2.left * SpeedForce, ForceMode2D.Force);
-            SpeedForce = Vector2.ClampMagnitude(SpeedForce, 300);
-        }
-        if (Input.GetKey(KeyCode.RightArrow) || (Input.GetKey(KeyCode.D)))
-        {
-            rb.AddForce(Vector2.right * SpeedForce, ForceMode2D.Force);
-            SpeedForce = Vector2.ClampMagnitude(SpeedForce, 300);
+            if (Input.GetKey(KeyCode.LeftArrow) || (Input.GetKey(KeyCode.A)))
+            {
+                rb.AddForce(Vector2.left * SpeedForce, ForceMode2D.Force);
+                SpeedForce = Vector2.ClampMagnitude(SpeedForce, 300);
+            }
+            if (Input.GetKey(KeyCode.RightArrow) || (Input.GetKey(KeyCode.D)))
+            {
+                rb.AddForce(Vector2.right * SpeedForce, ForceMode2D.Force);
+                SpeedForce = Vector2.ClampMagnitude(SpeedForce, 300);
+            }
         }
 
         //Jump
