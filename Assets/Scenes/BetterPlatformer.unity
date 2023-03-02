@@ -156,6 +156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentPortal: {fileID: 1864882400}
   Player: {fileID: 2049542866}
+  HasGoneThroughPortal: 0
+  exitForce_X: -2
+  exitForce_Y: 0
 --- !u!70 &226676896
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -8163,6 +8166,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentPortal: {fileID: 226676894}
   Player: {fileID: 2049542866}
+  HasGoneThroughPortal: 0
+  exitForce_X: 2
+  exitForce_Y: 0
 --- !u!1 &2049542866
 GameObject:
   m_ObjectHideFlags: 0
