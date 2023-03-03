@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CS_DashPanels : MonoBehaviour
 {
-    public BetterCharacterController Player;
-    public Vector2 SpeedForce;
+    private GameObject Player;
+    public float SpeedForce;
+    public Vector2 ForceDirection;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Dashed!");
         if (Player.gameObject.tag == "Player")
@@ -18,12 +19,12 @@ public class CS_DashPanels : MonoBehaviour
 
     private void Awake()
     {
-        Player = GetComponent<BetterCharacterController>();
+       Player = GameObject.FindGameObjectWithTag("Player"); 
     }
 
     IEnumerator Boost()
     {
         yield return new WaitForSeconds(0.1f);
-        Player.rb.AddForce(Vector2.left * SpeedForce, ForceMode2D.Force);
+        Player.GetComponent<Rigidbody2D>().AddForce(ForceDirection * SpeedForce, ForceMode2D.Force);
     }
 }
