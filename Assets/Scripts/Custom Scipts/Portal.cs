@@ -9,7 +9,6 @@ public class Portal : MonoBehaviour
     public GameObject Player;
     public float exitForce_X;
     public float exitForce_Y;
-    public bool ShouldTeleport;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
