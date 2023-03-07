@@ -10,10 +10,16 @@ public class Portal : MonoBehaviour
     public float exitForce_X;
     public float exitForce_Y;
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (Player.gameObject.tag == "Player")
         {
+            //Vector2 velocity = Player.gameObject.GetComponent<Rigidbody2D>().velocity;
+
+            //exitForce_X = velocity.x;
+            //exitForce_Y = velocity.y;
+
             if (this.gameObject.tag == "Portal1")
             {
                 StartCoroutine(TeleportToPortal2());
@@ -28,9 +34,6 @@ public class Portal : MonoBehaviour
     private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        Portal1 = GameObject.FindGameObjectWithTag("Portal1");
-        Portal2 = GameObject.FindGameObjectWithTag("Portal2");
-        
     }
 
     IEnumerator TeleportToPortal2()

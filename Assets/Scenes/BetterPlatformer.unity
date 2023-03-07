@@ -7813,7 +7813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e991d5c4e92cce498b8b71ed10fb1e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   SpeedForce: 100
   ForceDirection: {x: 10, y: 0}
 --- !u!70 &1467574411
@@ -8085,6 +8084,7 @@ MonoBehaviour:
   Portal_1: {fileID: 322463746359985477, guid: 4dfc9f80db3a9674282c9a5c1ff1920d, type: 3}
   Portal_2: {fileID: 9063232737005839397, guid: 2ad7077d9410f6f4bbeeb78c9687b9a5,
     type: 3}
+  PortalIndex: 0
   grounded: 0
   rb: {fileID: 2049542869}
   groundedLayers:

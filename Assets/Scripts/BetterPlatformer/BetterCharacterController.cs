@@ -21,6 +21,7 @@ public class BetterCharacterController : MonoBehaviour
     public Vector2 SpeedForce;
     public GameObject Portal_1;
     public GameObject Portal_2;
+    public int PortalIndex = 0;
     Camera cam;
 
     private GameObject curPortal1;
@@ -118,6 +119,20 @@ public class BetterCharacterController : MonoBehaviour
             }
 
             curPortal1 = Instantiate(Portal_1, new Vector2(cursorPos.x, cursorPos.y), Quaternion.identity);
+            
+            curPortal1.GetComponent<Portal>().Portal1 = curPortal1;
+            curPortal1.GetComponent<Portal>().Portal2 = curPortal2;
+
+            if (curPortal2 != null)
+            {
+                curPortal2.GetComponent<Portal>().Portal1 = curPortal1;
+                curPortal2.GetComponent<Portal>().Portal2 = curPortal2;
+            }
+
+
+
+            //PortalIndex = (PortalIndex + 1) % 2;
+            //Debug.Log(PortalIndex);
 
         }
         if (Input.GetMouseButtonDown(1))
@@ -130,10 +145,24 @@ public class BetterCharacterController : MonoBehaviour
             }
 
             curPortal2 = Instantiate(Portal_2, new Vector2(cursorPos.x, cursorPos.y), Quaternion.identity);
+
+            curPortal2.GetComponent<Portal>().Portal1 = curPortal1;
+            curPortal2.GetComponent<Portal>().Portal2 = curPortal2;
+
+            if (curPortal1 != null)
+            {
+                curPortal1.GetComponent<Portal>().Portal1 = curPortal1;
+                curPortal1.GetComponent<Portal>().Portal2 = curPortal2;
+            }
+
+            //PortalIndex = (PortalIndex + 1) % 2;
+            //Debug.Log(PortalIndex);
         }
 
         //Get Player input 
-        horizInput = Input.GetAxis("Horizontal");     
+        horizInput = Input.GetAxis("Horizontal");
+
+        
     }
 
     // Flip Character Sprite
