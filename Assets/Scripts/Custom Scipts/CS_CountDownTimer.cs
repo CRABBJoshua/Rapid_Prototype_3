@@ -8,7 +8,7 @@ public class CS_CountDownTimer : MonoBehaviour
     public float currentTime = 0f;
     public float startingTime = 10f;
 
-    public Text countdownText;
+    [SerializeField] Text countdownText;
 
     private void Start()
     {
@@ -18,6 +18,12 @@ public class CS_CountDownTimer : MonoBehaviour
     private void Update()
     {
         currentTime -= 1 * Time.deltaTime;
-        print(currentTime);
+        countdownText.text = currentTime.ToString();
+
+        if(currentTime < 0)
+        {
+            Debug.Log("Quit");
+            Application.Quit();
+        }
     }
 }
