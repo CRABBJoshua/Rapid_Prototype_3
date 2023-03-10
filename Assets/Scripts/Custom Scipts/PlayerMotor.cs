@@ -331,6 +331,7 @@ public abstract class PlayerMotor : MonoBehaviour
 
     private void UpdateCollider()
     {
+        //MADE A CHANGE v
         //collider.center = currentBounds.center;
         collider.size = currentBounds.size;
     }

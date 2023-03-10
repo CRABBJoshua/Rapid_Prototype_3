@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
 //--------------------------------------------
 /*Better Character Controller Includes:
      - Fixed Update / Update Input seperation
@@ -9,7 +8,7 @@ using System.Collections;
      - Basic Multi Jump
  */
 //--------------------------------------------
-public class BetterCharacterController : MonoBehaviour
+public class BetterCharacterController : PlayerMotor
 {
     protected bool facingRight = true;
     protected bool jumped;
