@@ -7,17 +7,17 @@ public class StageManager : MonoBehaviour
 {
     private static StageManager Instance;
 
-    public static StageManager Instance
+    public static StageManager
     {
         get
         {
-            if (instance == null)
+            if (Instance == null)
             {
-                instance = FindObjectOfType<StageManager>();
-                instance.StartSingleton();
+                Instance = FindObjectOfType<StageManager>();
+                Instance.StartSingleton();
             }
 
-            return instance;
+            return Instance;
         }
     }
 }
