@@ -37,6 +37,11 @@ public class Player : PlayerMotor
     public GameObject Portal_2;
     public int PortalIndex = 0;
 
+    [Header("Jumping Variables")]
+    protected bool jumped;
+    public int maxJumps;
+    protected int currentjumpCount;
+
     Camera cam;
 
     private GameObject curPortal1;
@@ -57,7 +62,7 @@ public class Player : PlayerMotor
 
     private void ClampVelocity()
     {
-        velocity = Vector3.ClampMagnitude(velocity, stats.maxSpeed);
+        velocity = Vector2.ClampMagnitude(velocity, stats.maxSpeed);
     }
 
     private void ClampToStageBounds()
@@ -221,6 +226,19 @@ public class Player : PlayerMotor
 
     private void update()
     {
+        if (grounded)
+        {
+            currentjumpCount = maxJumps;
+        }
+
+        //Input for jumping ***Multi Jumping***
+        if (Input.GetButtonDown("Jump") && currentjumpCount > 1)
+        {
+            jumped = true;
+            currentjumpCount--;
+            Debug.Log("Should jump");
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 cursorPos = cam.ScreenToWorldPoint(Input.mousePosition);

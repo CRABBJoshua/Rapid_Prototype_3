@@ -44,7 +44,7 @@ public class PlayerInput
 
     private void UpdateAction()
     {
-        if (Input.GetButton(actionName))
+        if (Input.GetButton(horizontalName))
         {
             if (!action)
             {
