@@ -422,7 +422,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9650092, y: 1}
+    m_SensorSize: {x: 1.9686347, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8338,7 +8338,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049542866}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83e78380b8886b74d837a4ee22b38887, type: 3}
   m_Name: 
@@ -8432,7 +8432,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049542866}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 254e65d805f36f849b68b44a625021ab, type: 3}
   m_Name: 
@@ -8442,7 +8442,11 @@ MonoBehaviour:
   height: 1
   wallExtents: 0.01
   groundExtents: 0.5
-  bounds: []
+  bounds:
+  - m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.25, y: 0.5, z: 0.25}
+  - m_Center: {x: 0, y: -0.1, z: 0}
+    m_Extent: {x: 0.25, y: 0.25, z: 0.25}
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
