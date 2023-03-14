@@ -21,7 +21,9 @@ MonoBehaviour:
   invincibleTime: 10.07
   controlLockTime: 10.1
   topSpeed: 20
-  maxSpeed: 20
+  maxSpeed: 40
+  timeToMaxSpeed: 10
+  JumpForce: 100
   acceleration: 8.37
   deceleration: 4.24
   friction: 12.28
@@ -29,7 +31,7 @@ MonoBehaviour:
   minSpeedToBrake: 5.3
   turnSpeed: 8.02
   airAcceleration: 11.96
-  gravity: 4.45
+  gravity: 8.62
   minJumpHeight: 4.06
   maxJumpHeight: 5.87
   minSpeedToRoll: 4.21
