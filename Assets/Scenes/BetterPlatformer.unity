@@ -422,7 +422,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2023122, y: 1}
+    m_SensorSize: {x: 2.0368323, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8474,7 +8474,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2049542870}
-  - component: {fileID: 2049542873}
   - component: {fileID: 2049542867}
   - component: {fileID: 2049542869}
   - component: {fileID: 2049542872}
@@ -8493,7 +8492,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049542866}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83e78380b8886b74d837a4ee22b38887, type: 3}
   m_Name: 
@@ -8537,11 +8536,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  m_UseAutoMass: 1
   m_Mass: 0.77663726
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -8579,51 +8578,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0000009536743, y: -0.2906704}
   m_Size: {x: 0.81134224, y: 1.1313407}
   m_Direction: 0
---- !u!114 &2049542873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049542866}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 254e65d805f36f849b68b44a625021ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  simulate: 1
-  lockUpright: 0
-  height: 1
-  wallExtents: 0.01
-  groundExtents: 0.5
-  bounds:
-  - m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.25, y: 0.5, z: 0.25}
-  - m_Center: {x: 0, y: -0.1, z: 0}
-    m_Extent: {x: 0.25, y: 0.25, z: 0.25}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  ceilingLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  velocity: {x: 0, y: 0}
-  disableInput: 0
-  disableSkinRotation: 0
-  disableCameraFollow: 0
-  input:
-    horizontalName: Horizontal
-    verticalName: Vertical
-    actionName: Action
-  stats: {fileID: 11400000, guid: 79e8549ba3dd53d4297f0e21ca6339ec, type: 2}
-  Portal_1: {fileID: 0}
-  Portal_2: {fileID: 0}
-  PortalIndex: 0
-  maxJumps: 0
-  cam: {fileID: 519420031}
 --- !u!114 &2049542874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8645,24 +8599,27 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.0071846233
-      outSlope: 0.0071846233
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
-      weightedMode: 2
+      weightedMode: 0
       inWeight: 0
-      outWeight: 0.13037257
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -0.0022485512
-      outSlope: -0.0022485512
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
-      weightedMode: 1
-      inWeight: 0.9039235
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_Layer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2129559087
 GameObject:
   m_ObjectHideFlags: 0

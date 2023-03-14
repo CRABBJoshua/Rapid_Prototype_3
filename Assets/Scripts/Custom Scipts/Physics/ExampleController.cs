@@ -17,11 +17,14 @@ public class ExampleController : MonoBehaviour
 
 	private Rigidbody2D m_RB;
 	[SerializeField] private AnimationCurve m_MomentumLUT;
+	[SerializeField] private LayerMask m_Layer;
 	private float m_MovingTimer;
 	private float m_JumpingTimer;
+	private float m_RayCastTimer = 20;
 
 	private bool m_Grounded;
 	private bool m_GroundedCheckActive;
+	
 
 	private void Awake()
 	{
@@ -41,7 +44,6 @@ public class ExampleController : MonoBehaviour
 		if (m_GroundedCheckActive) { GroundedCheck(); }
 		ApplyMotion();
 		Jump();
-		GetComponent<Rigidbody2D>().AddForce(Physics.gravity, ForceMode2D.Force);
 	}
 
 	private void GetInputs()
@@ -77,7 +79,7 @@ public class ExampleController : MonoBehaviour
 			m_GroundedCheckActive = false;
 			StartCoroutine(C_DelayGroundedCheck());
 		}
-		else if (m_JumpingTimer < 76234f) //FIX THIS
+		else if (m_JumpingTimer < 10f) //FIX THIS
 		{
 			//hover FIX THIS
 			m_RB.AddForce(Vector2.up * 10, ForceMode2D.Force);
@@ -87,7 +89,7 @@ public class ExampleController : MonoBehaviour
 
 	private void GroundedCheck()
 	{
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * 39f); //FIX THIS to not use hard coded values and possibly a layermask
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * m_RayCastTimer, m_Layer);
 
 		m_Grounded = (hit != null);
 
