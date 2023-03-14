@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "PlayerStats", menuName = "DataAsset/PlayerStat", order = 0)]
 public class PlayerStats : ScriptableObject
 {
     [Header("General")]
@@ -15,6 +16,8 @@ public class PlayerStats : ScriptableObject
     public float controlLockTime;
     public float topSpeed;
     public float maxSpeed;
+	public float timeToMaxSpeed;
+	public float JumpForce;
 
     [Header("Ground")]
     public float acceleration;

@@ -42,7 +42,7 @@ public class Player : PlayerMotor
     public int maxJumps;
     protected int currentjumpCount;
 
-    Camera cam;
+    public Camera cam;
 
     private GameObject curPortal1;
     private GameObject curPortal2;

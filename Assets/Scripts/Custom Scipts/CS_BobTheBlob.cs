@@ -46,8 +46,10 @@ public class CS_BobTheBlob : MonoBehaviour
     {
         edgeCheckPos = new Vector2(transform.position.x + (direction * edgeCheckOffset.x), transform.position.y - edgeCheckOffset.y);
 
-        edgeCheck = Physics2D.OverlapBox(edgeCheckPos, edgeCheckSize, 0, collisionLayer);
-        groundCheck = Physics.OverlapBox(groundCheckPos.position, groundCheckSize, 0, collisionLayer);
+		//Physics2D.OverlapBox(point, size, angle, layerMask, mindepth);
+		//Physics2D.OverlapBox()
+        edgeCheck = Physics2D.OverlapBox(edgeCheckPos, edgeCheckSize, 0, collisionLayer, 10);
+        groundCheck = Physics2D.OverlapBox(groundCheckPos.position, groundCheckSize, 0, collisionLayer, 10);
 
         if(edgeCheck == false && groundCheck == true)
         {

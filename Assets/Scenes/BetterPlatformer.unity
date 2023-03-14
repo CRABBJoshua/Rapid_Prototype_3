@@ -422,7 +422,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9686347, y: 1}
+    m_SensorSize: {x: 2.1984587, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8154,7 +8154,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f240dfd4814d34d55a9b033f3c9d8a60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8193,7 +8193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458236066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.92, y: -0.2, z: 1.7353829}
+  m_LocalPosition: {x: 3.92, y: -0.2, z: 0}
   m_LocalScale: {x: 4.0936, y: 4.0936, z: 4.0936}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8478,6 +8478,7 @@ GameObject:
   - component: {fileID: 2049542867}
   - component: {fileID: 2049542869}
   - component: {fileID: 2049542872}
+  - component: {fileID: 2049542874}
   m_Layer: 9
   m_Name: Character
   m_TagString: Player
@@ -8492,7 +8493,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049542866}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83e78380b8886b74d837a4ee22b38887, type: 3}
   m_Name: 
@@ -8618,11 +8619,51 @@ MonoBehaviour:
     horizontalName: Horizontal
     verticalName: Vertical
     actionName: Action
-  stats: {fileID: 0}
+  stats: {fileID: 11400000, guid: 79e8549ba3dd53d4297f0e21ca6339ec, type: 2}
   Portal_1: {fileID: 0}
   Portal_2: {fileID: 0}
   PortalIndex: 0
   maxJumps: 0
+  cam: {fileID: 519420031}
+--- !u!114 &2049542874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049542866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cebdd2bdbff604a8a589589d766b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MoveInput: Horizontal
+  m_JumpInput: Jump
+  m_Stats: {fileID: 11400000, guid: 79e8549ba3dd53d4297f0e21ca6339ec, type: 2}
+  m_MomentumLUT:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.0071846233
+      outSlope: 0.0071846233
+      tangentMode: 0
+      weightedMode: 2
+      inWeight: 0
+      outWeight: 0.13037257
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.0022485512
+      outSlope: -0.0022485512
+      tangentMode: 0
+      weightedMode: 1
+      inWeight: 0.9039235
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2129559087
 GameObject:
   m_ObjectHideFlags: 0

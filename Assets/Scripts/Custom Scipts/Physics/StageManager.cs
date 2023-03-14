@@ -16,7 +16,7 @@ public class StageManager : MonoBehaviour
             if (instance == null)
             {
                 instance = FindObjectOfType<StageManager>();
-                instance.StartSingleton();
+                //instance.StartSingleton();
             }
 
             return instance;
