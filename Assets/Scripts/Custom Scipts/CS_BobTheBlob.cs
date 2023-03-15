@@ -5,6 +5,11 @@ using UnityEngine.UIElements;
 
 public class CS_BobTheBlob : MonoBehaviour
 {
+	/*TODOLIST:
+	 * Damage to the player
+	 * Death
+	 */
+
     SpriteRenderer sr;
     Rigidbody2D rb;
 
@@ -17,8 +22,8 @@ public class CS_BobTheBlob : MonoBehaviour
     Vector2 edgeCheckPos;
     Vector2 edgeCheckSize;
     Vector2 groundCheckSize;
-    bool edgeCheck;
-    bool groundCheck;
+	private bool edgeCheck = false;
+	private bool groundCheck = false;
     float direction;
 
     void Awake()
@@ -42,29 +47,43 @@ public class CS_BobTheBlob : MonoBehaviour
         groundCheckSize = new Vector2(0.25f, 0.25f);
     }
 
-    void Update()
+	//private void OnDrawGizmos()
+	//{
+	//	if (Application.isPlaying)
+	//		return;
+
+	//	Gizmos.DrawCube(transform.position + (Vector3)edgeCheckOffset, Vector3.one * edgeCheckSize);
+	//}
+
+	void Update()
     {
         edgeCheckPos = new Vector2(transform.position.x + (direction * edgeCheckOffset.x), transform.position.y - edgeCheckOffset.y);
 
 		//Physics2D.OverlapBox(point, size, angle, layerMask, mindepth);
 		//Physics2D.OverlapBox()
-        edgeCheck = Physics2D.OverlapBox(edgeCheckPos, edgeCheckSize, 0, collisionLayer, 10);
-        groundCheck = Physics2D.OverlapBox(groundCheckPos.position, groundCheckSize, 0, collisionLayer, 10);
+        edgeCheck = Physics2D.OverlapBox(edgeCheckPos, edgeCheckSize, 0, collisionLayer);
+        groundCheck = Physics2D.OverlapBox(groundCheckPos.position, groundCheckSize, 0, collisionLayer);
 
-        if(edgeCheck == false && groundCheck == true)
+		//print(edgeCheckPos);
+		//Debug.Log(edgeCheck + " .. " + groundCheck);
+
+		if (edgeCheck == false && groundCheck == true)
         {
+			//Debug.Log("change direction: " + edgeCheck + " .. " + groundCheck);
             ChangeDirection();
         }
     }
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(direction * movementSpeed, rb.velocity.y);    
-    }
+		rb.velocity = new Vector2(direction * movementSpeed, rb.velocity.y);
+	}
 
     void ChangeDirection()
     {
-        if(direction == 0)
+		//Debug.Log(direction);
+
+        if(direction == 1)
         {
             direction = -1;
             if (isSpriteFacingRight)

@@ -22,8 +22,8 @@ MonoBehaviour:
   controlLockTime: 10.1
   topSpeed: 20
   maxSpeed: 40
-  timeToMaxSpeed: 10
-  JumpForce: 100
+  timeToMaxSpeed: 5
+  JumpForce: 10
   acceleration: 8.37
   deceleration: 4.24
   friction: 12.28

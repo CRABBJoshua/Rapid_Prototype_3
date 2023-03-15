@@ -422,7 +422,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2023122, y: 1}
+    m_SensorSize: {x: 2.38125, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8091,7 +8091,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 0.32, y: 0.35}
   m_EdgeRadius: 0
 --- !u!50 &1458236068
 Rigidbody2D:
@@ -8184,7 +8184,7 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 256
-  edgeCheckOffset: {x: 0, y: 0.25}
+  edgeCheckOffset: {x: 1.91, y: 0.74}
 --- !u!4 &1458236071
 Transform:
   m_ObjectHideFlags: 0
@@ -8311,7 +8311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467574409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.11, y: -1.13, z: 0}
+  m_LocalPosition: {x: 7.3, y: 3.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8492,7 +8492,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049542866}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83e78380b8886b74d837a4ee22b38887, type: 3}
   m_Name: 
@@ -8644,7 +8644,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129559087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.039, y: -0.195, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

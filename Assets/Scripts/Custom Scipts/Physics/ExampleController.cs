@@ -5,6 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class ExampleController : MonoBehaviour
 {
+	/*TODO LIST:
+	 * Snaping
+	 * Fixing speed
+	*/
+	
 	#region inputs
 	[SerializeField] private string m_MoveInput;
 	[SerializeField] private string m_JumpInput;
@@ -21,6 +26,10 @@ public class ExampleController : MonoBehaviour
 	private float m_MovingTimer;
 	private float m_JumpingTimer;
 	private float m_RayCastTimer = 20;
+	private float m_HoverTimer = 10;
+	private float m_JumpDelay = 2f;
+	private float m_ForceDown = 10f;
+	private float m_HoverForce = 10f;
 
 	private bool m_Grounded;
 	private bool m_GroundedCheckActive;
@@ -64,7 +73,11 @@ public class ExampleController : MonoBehaviour
 			m_MovingTimer = 0f;
 		}
 		//get the speed from the LUT and apply it to velocity
-		m_RB.velocity = Vector2.right * m_MomentumLUT.Evaluate(m_MovingTimer / m_Stats.timeToMaxSpeed) * m_Stats.maxSpeed * ((m_InMove > 0f) ? 1f : -1f);
+
+		float xSpeed = m_MomentumLUT.Evaluate(m_MovingTimer / m_Stats.timeToMaxSpeed) * m_Stats.maxSpeed * ((m_InMove > 0f) ? 1f : -1f);
+
+		m_RB.velocity = new Vector2(xSpeed, m_RB.velocity.y);
+		m_RB.velocity = Vector2.ClampMagnitude(m_RB.velocity, m_Stats.maxSpeed);
 	}
 
 	private void Jump()
@@ -73,16 +86,15 @@ public class ExampleController : MonoBehaviour
 
 		if (m_Grounded)
 		{
-			//yeet FIX THIS
 			m_RB.AddForce(Vector2.up * m_Stats.JumpForce, ForceMode2D.Impulse);
 			m_Grounded = false;
 			m_GroundedCheckActive = false;
 			StartCoroutine(C_DelayGroundedCheck());
 		}
-		else if (m_JumpingTimer < 10f) //FIX THIS
+		else if (m_JumpingTimer < m_HoverTimer)
 		{
 			//hover FIX THIS
-			m_RB.AddForce(Vector2.up * 10, ForceMode2D.Force);
+			m_RB.AddForce(Vector2.up * m_HoverForce, ForceMode2D.Force);
 			m_JumpingTimer += Time.fixedDeltaTime;
 		}
 	}
@@ -96,12 +108,12 @@ public class ExampleController : MonoBehaviour
 		if(!m_Grounded) { return; }
 
 		m_JumpingTimer = 0f;
-		m_RB.AddForce(Vector2.down * 10f, ForceMode2D.Force); //FIX THIS
+		m_RB.AddForce(Vector2.down * m_ForceDown, ForceMode2D.Force);
 	}
 
 	private IEnumerator C_DelayGroundedCheck()
 	{
-		yield return new WaitForSeconds(0.5f); //FIX THIS
+		yield return new WaitForSeconds(m_JumpDelay);
 		m_GroundedCheckActive = true;
 	}
 }
