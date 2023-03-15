@@ -10,17 +10,37 @@ public class Portal : MonoBehaviour
     public float exitForce_X;
     public float exitForce_Y;
 
+	//private bool EnterLeft;
+	//private bool EnterRight;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+	//private void OnCollisionEnter2D(Collision2D collision)
+	//{
+	//	EnterLeft = true;
+	//	Debug.Log(EnterLeft);
+	//}
+
+	//private void OnCollisionEnter(Collision collision)
+	//{
+	//	EnterRight = true;
+	//	Debug.Log(EnterRight);
+	//}
+
+	private void OnTriggerEnter2D(Collider2D collision)
     {
         if (Player.gameObject.tag == "Player")
         {
-            //Vector2 velocity = Player.gameObject.GetComponent<Rigidbody2D>().velocity;
+            float m_InMove = Player.gameObject.GetComponent<ExampleController>().m_InMove;
 
-            //exitForce_X = velocity.x;
-            //exitForce_Y = velocity.y;
+			if(m_InMove == 1)
+			{
+				exitForce_X = 2;
+			}
+			else if(m_InMove == -1)
+			{
+				exitForce_X = -2;
+			}
 
-            if (this.gameObject.tag == "Portal1")
+			if (this.gameObject.tag == "Portal1")
             {
                 StartCoroutine(TeleportToPortal2());
             }

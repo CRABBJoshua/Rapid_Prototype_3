@@ -15,9 +15,10 @@ public class BetterCharacterController : PlayerMotor
     public float jumpForce = 1000;
     public Vector2 SpeedForce;
     public GameObject Portal_1;
+    public GameObject Portal_1_Projectile;
+    public GameObject Portal_2_Projectile;
     public GameObject Portal_2;
     public int PortalIndex = 0;
-	private bool isHoldingMouseButton = false;
     Camera cam;
 
     private GameObject curPortal1;
@@ -46,7 +47,7 @@ public class BetterCharacterController : PlayerMotor
 		if (Input.GetMouseButtonDown(0))
 		{
 			//start slow mo
-			Time.timeScale = 0.01f;
+			Time.timeScale = 0.05f;
 		}
 
 		if (Input.GetMouseButtonUp(0))
@@ -76,7 +77,7 @@ public class BetterCharacterController : PlayerMotor
 		if (Input.GetMouseButtonDown(1))
 		{
 			//start slow mo
-			Time.timeScale = 0.01f;
+			Time.timeScale = 0.05f;
 		}
 
 		if (Input.GetMouseButtonUp(1))

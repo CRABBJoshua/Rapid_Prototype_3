@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/BetterPlatformer.unity
+    guid: 9bb9c245195574c48bd6ac958ea1bfd9
   m_configObjects: {}

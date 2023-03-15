@@ -25,6 +25,7 @@ public class CS_BobTheBlob : MonoBehaviour
 	private bool edgeCheck = false;
 	private bool groundCheck = false;
     float direction;
+	public ExampleController Player;
 
     void Awake()
     {
@@ -32,7 +33,16 @@ public class CS_BobTheBlob : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();   
     }
 
-    void Start()
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (Player.gameObject.tag == "Player")
+		{
+			Debug.Log("Damage?");
+			Player.TakeDamage(20);
+		}
+	}
+
+	void Start()
     {
         if(isSpriteFacingRight == false)
         {

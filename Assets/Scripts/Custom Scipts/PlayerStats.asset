@@ -21,8 +21,8 @@ MonoBehaviour:
   invincibleTime: 10.07
   controlLockTime: 10.1
   topSpeed: 20
-  maxSpeed: 40
-  timeToMaxSpeed: 5
+  maxSpeed: 30
+  timeToMaxSpeed: 4
   JumpForce: 10
   acceleration: 8.37
   deceleration: 4.24
