@@ -35,7 +35,7 @@ public class CS_BobTheBlob : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (Player.gameObject.tag == "Player")
+		if (collision.gameObject.tag == "Player")
 		{
 			Debug.Log("Damage?");
 			Player.TakeDamage(20);

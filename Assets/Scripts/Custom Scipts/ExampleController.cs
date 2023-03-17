@@ -16,6 +16,7 @@ public class ExampleController : MonoBehaviour
 	[SerializeField] private string m_JumpInput;
 
 	public float m_InMove;
+	private float m_InMovePrev; //set this value every frame to the old move input then check the input in apply motion to see if they have different signs
 	private bool m_InJump;
 	#endregion
 
@@ -40,6 +41,7 @@ public class ExampleController : MonoBehaviour
 	[SerializeField] private LayerMask m_Layer;
 	[SerializeField] private LayerMask m_WhatIsGround;
 	[SerializeField] private GameObject Player;
+	[SerializeField] private AnimationCurve m_SpeedFactor;
 	
 	private float m_JumpDelay = 1f;
 	private float m_SpeedDelay = 1f;
@@ -107,6 +109,7 @@ public class ExampleController : MonoBehaviour
 
 	private void GetInputs()
 	{
+		m_InMovePrev = m_InMove;
 		m_InMove = Input.GetAxis(m_MoveInput);
 		m_InJump = Input.GetButton(m_JumpInput);
 	}
@@ -114,7 +117,7 @@ public class ExampleController : MonoBehaviour
 	private void ApplyMotion()
 	{
 		//Update the mmoving timer value based on time
-		if (m_InMove != 0f)
+		if (m_InMove != 0f && Mathf.Sign(m_InMove) == Mathf.Sign(m_InMovePrev))
 		{
 			m_MovingTimer += Time.fixedDeltaTime;
 		}
@@ -126,7 +129,9 @@ public class ExampleController : MonoBehaviour
 
 		float xSpeed = m_MomentumLUT.Evaluate(m_MovingTimer / m_Stats.timeToMaxSpeed) * m_Stats.maxSpeed * ((m_InMove > 0f) ? 1f : -1f);
 
-		m_RB.velocity = new Vector2(xSpeed, m_RB.velocity.y);
+		float SpeedFactor = m_SpeedFactor.Evaluate(Vector2.Dot((Vector2.right * xSpeed).normalized, m_RB.velocity.normalized));
+
+		m_RB.velocity = new Vector2(xSpeed * SpeedFactor, m_RB.velocity.y);
 		m_RB.velocity = Vector2.ClampMagnitude(m_RB.velocity, m_Stats.maxSpeed);
 
 		//Stops spped on the direction change

@@ -422,7 +422,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2031872, y: 1}
+    m_SensorSize: {x: 2.38125, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7675,8 +7675,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 180, y: 195.34}
-  m_SizeDelta: {x: 315.8256, y: -516.6395}
+  m_AnchoredPosition: {x: 180, y: 195}
+  m_SizeDelta: {x: 315.8256, y: -485.4596}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1005341915
 MonoBehaviour:
@@ -8213,6 +8213,7 @@ GameObject:
   - component: {fileID: 1458236069}
   - component: {fileID: 1458236068}
   - component: {fileID: 1458236067}
+  - component: {fileID: 1458236072}
   m_Layer: 10
   m_Name: BobTheBlob
   m_TagString: Untagged
@@ -8230,7 +8231,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -8355,6 +8356,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1458236072
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458236066}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.4, y: 0.41}
+    newSize: {x: 8.958333, y: 0.9583333}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4, y: 0.41}
+  m_EdgeRadius: 0
 --- !u!1 &1467574409
 GameObject:
   m_ObjectHideFlags: 0
@@ -8727,7 +8754,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 2049542866}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: ac92a1c4b9d160b4faca516ff7cd30de, type: 2}
+  m_Material: {fileID: 6200000, guid: 5e6f89301c6f0ed49bb19d22f113ace9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -8788,6 +8815,39 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   Player: {fileID: 2049542866}
+  m_SpeedFactor:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: 2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   m_VelocityReset: {x: 0, y: 0}
   maxHealth: 100
   currentHealth: 0
