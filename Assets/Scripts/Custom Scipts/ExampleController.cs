@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class ExampleController : MonoBehaviour
@@ -72,14 +73,19 @@ public class ExampleController : MonoBehaviour
 	{
 		GetInputs();
 
-		if(Input.GetKeyDown(KeyCode.E))
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			SceneManager.LoadScene(1);
+		}
+
+		if (Input.GetKeyDown(KeyCode.E))
 		{
 			TakeDamage(20);
+		}
 
-			if (currentHealth <= 0)
-			{
-				Death();
-			}
+		if (currentHealth <= 0)
+		{
+			Death();
 		}
 	}
 
