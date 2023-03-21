@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -1352,12 +1352,12 @@ TextureImporter:
       df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_29: -1695232818
       df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_49: -12000128
       df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_0: -62432706
-      df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_24: 228885364
-      df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_13: 1922203236
-      df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_44: -1892548242
       df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_41: 2028528182
+      df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_13: 1922203236
+      df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_24: 228885364
       df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_42: 1217390867
       df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_52: -884614990
+      df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_44: -1892548242
       df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_23: 547675782
       df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_30: 1798684810
       df54w2j-ca0d0e96-aac5-482d-96d1-f11bc78dd9b4_3: 1366040128

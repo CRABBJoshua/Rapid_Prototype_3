@@ -43,6 +43,8 @@ public class ExampleController : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsGround;
 	[SerializeField] private GameObject Player;
 	[SerializeField] private AnimationCurve m_SpeedFactor;
+
+	public Animator anim;
 	
 	private float m_JumpDelay = 1f;
 	private float m_SpeedDelay = 1f;
@@ -137,6 +139,12 @@ public class ExampleController : MonoBehaviour
 		float xSpeed = m_MomentumLUT.Evaluate(m_MovingTimer / m_Stats.timeToMaxSpeed) * m_Stats.maxSpeed * ((m_InMove > 0f) ? 1f : -1f);
 
 		float SpeedFactor = m_SpeedFactor.Evaluate(Vector2.Dot((Vector2.right * xSpeed).normalized, m_RB.velocity.normalized));
+
+		if (m_InMove != 0)
+			anim.SetBool("IsRunning", true);
+		else
+			anim.SetBool("IsRunning", false);
+
 
 		m_RB.velocity = new Vector2(xSpeed * SpeedFactor, m_RB.velocity.y);
 		m_RB.velocity = Vector2.ClampMagnitude(m_RB.velocity, m_Stats.maxSpeed);
