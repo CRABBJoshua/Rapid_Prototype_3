@@ -148,15 +148,6 @@ public class ExampleController : MonoBehaviour
 			FlipSprite();
 		}
 
-		//if(m_InMove == -1f)
-		//{
-		//	FlipSpriteLeft();
-		//}
-		//else if(m_InMove == 1f)
-		//{
-		//	FlipSpriteRight();
-		//}
-
 		if (m_InMove != 0)
 			anim.SetBool("IsRunning", true);
 		else
@@ -166,34 +157,6 @@ public class ExampleController : MonoBehaviour
 		m_RB.velocity = new Vector2(xSpeed * SpeedFactor, m_RB.velocity.y);
 		m_RB.velocity = Vector2.ClampMagnitude(m_RB.velocity, m_Stats.maxSpeed);
 
-		//Stops spped on the direction change
-		//if(m_InMove == 1)
-		//{
-		//	m_RB.velocity = new Vector2(xSpeed, m_RB.velocity.y);
-		//	m_RB.velocity = Vector2.ClampMagnitude(m_RB.velocity, m_Stats.maxSpeed);
-		//	if (m_InMove != 1)
-		//	{
-		//		StartCoroutine(C_StopSpeed());
-		//	}
-
-		//}
-		//else if(m_InMove == -1)
-		//{
-		//	m_RB.velocity = new Vector2(xSpeed, m_RB.velocity.y);
-		//	m_RB.velocity = Vector2.ClampMagnitude(m_RB.velocity, m_Stats.maxSpeed);
-		//	if (m_InMove != -1)
-		//	{
-		//		Debug.Log("WORK PLEASE");
-		//		StartCoroutine(C_StopSpeed());
-		//	}
-
-		//}
-
-		//if (m_InMove == 0 || m_InMove != 1 || m_InMove == -1)
-		//{
-		//	Debug.Log("WORK PLEASE");
-		//	StartCoroutine(C_StopSpeed());
-		//}
 	}
 
 	private void Jump()
@@ -217,12 +180,6 @@ public class ExampleController : MonoBehaviour
 			{
 				anim.SetBool("IsJumping", true);
 			}
-			else if (m_InJump != true)
-			{
-				Debug.Log("Jumped");
-				anim.SetBool("IsJumping", false);
-			}
-				
 		}
 	}
 
@@ -242,6 +199,11 @@ public class ExampleController : MonoBehaviour
 	{
 		yield return new WaitForSeconds(m_JumpDelay);
 		m_GroundedCheckActive = true;
+		Debug.Log("Stop Jumping");
+		if (m_InJump != true)
+		{
+			anim.SetBool("IsJumping", false);
+		}
 	}
 
 	private IEnumerator C_StopSpeed()
@@ -268,14 +230,6 @@ public class ExampleController : MonoBehaviour
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, time);
 		}
 	}
-	//void FlipSpriteLeft()
-	//{
-	//	transform.Rotate(0, 180, 0);
-	//}
-	//void FlipSpriteRight()
-	//{
-	//	transform.Rotate(0, -180, 0);
-	//}
 
 	void FlipSprite()
 	{
