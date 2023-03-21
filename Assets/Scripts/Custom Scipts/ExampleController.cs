@@ -45,7 +45,8 @@ public class ExampleController : MonoBehaviour
 	[SerializeField] private AnimationCurve m_SpeedFactor;
 
 	public Animator anim;
-	
+
+	protected bool facingRight = true;
 	private float m_JumpDelay = 1f;
 	private float m_SpeedDelay = 1f;
 	private float m_ForceDown = 10f;
@@ -140,6 +141,24 @@ public class ExampleController : MonoBehaviour
 
 		float SpeedFactor = m_SpeedFactor.Evaluate(Vector2.Dot((Vector2.right * xSpeed).normalized, m_RB.velocity.normalized));
 
+		if (m_InMove > 0 && !facingRight)
+		{
+			FlipSprite();
+		}
+		else if (m_InMove < 0 && facingRight)
+		{
+			FlipSprite();
+		}
+
+		//if(m_InMove == -1f)
+		//{
+		//	FlipSpriteLeft();
+		//}
+		//else if(m_InMove == 1f)
+		//{
+		//	FlipSpriteRight();
+		//}
+
 		if (m_InMove != 0)
 			anim.SetBool("IsRunning", true);
 		else
@@ -189,7 +208,13 @@ public class ExampleController : MonoBehaviour
 			m_Grounded = false;
 			m_GroundedCheckActive = false;
 			StartCoroutine(C_DelayGroundedCheck());
+			anim.SetBool("IsJumping", false);
 		}
+		else if (m_Grounded =! true)
+		{
+			anim.SetBool("IsJumping", true);
+		}
+			
 		else if (m_JumpingTimer < m_HoverTimer)
 		{
 			//hover FIX THIS
@@ -239,5 +264,19 @@ public class ExampleController : MonoBehaviour
 			Quaternion targetRot = Quaternion.FromToRotation(Vector2.up, info.normal);
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, time);
 		}
+	}
+	//void FlipSpriteLeft()
+	//{
+	//	transform.Rotate(0, 180, 0);
+	//}
+	//void FlipSpriteRight()
+	//{
+	//	transform.Rotate(0, -180, 0);
+	//}
+
+	void FlipSprite()
+	{
+		facingRight = !facingRight;
+		transform.Rotate(0, 180, 0);
 	}
 }
