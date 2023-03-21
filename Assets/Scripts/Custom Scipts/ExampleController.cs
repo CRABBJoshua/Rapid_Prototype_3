@@ -52,6 +52,7 @@ public class ExampleController : MonoBehaviour
 	private float m_ForceDown = 10f;
 	private float m_HoverForce = 10f;
 	public Vector2 m_VelocityReset;
+	float inputHorizontal;
 
 	public int maxHealth = 100;
 	public int currentHealth;
@@ -122,6 +123,7 @@ public class ExampleController : MonoBehaviour
 		m_InMovePrev = m_InMove;
 		m_InMove = Input.GetAxis(m_MoveInput);
 		m_InJump = Input.GetButton(m_JumpInput);
+		inputHorizontal = Input.GetAxisRaw("Horizontal");
 	}
 
 	private void ApplyMotion()
@@ -141,11 +143,7 @@ public class ExampleController : MonoBehaviour
 
 		float SpeedFactor = m_SpeedFactor.Evaluate(Vector2.Dot((Vector2.right * xSpeed).normalized, m_RB.velocity.normalized));
 
-		if (m_InMove > 0 && !facingRight)
-		{
-			FlipSprite();
-		}
-		else if (m_InMove < 0 && facingRight)
+		if(inputHorizontal != 0)
 		{
 			FlipSprite();
 		}
@@ -208,18 +206,23 @@ public class ExampleController : MonoBehaviour
 			m_Grounded = false;
 			m_GroundedCheckActive = false;
 			StartCoroutine(C_DelayGroundedCheck());
-			anim.SetBool("IsJumping", false);
-		}
-		else if (m_Grounded =! true)
-		{
-			anim.SetBool("IsJumping", true);
-		}
-			
+		}	
 		else if (m_JumpingTimer < m_HoverTimer)
 		{
 			//hover FIX THIS
 			m_RB.AddForce(Vector2.up * m_HoverForce, ForceMode2D.Force);
 			m_JumpingTimer += Time.fixedDeltaTime;
+
+			if (m_InJump == true)
+			{
+				anim.SetBool("IsJumping", true);
+			}
+			else if (m_InJump != true)
+			{
+				Debug.Log("Jumped");
+				anim.SetBool("IsJumping", false);
+			}
+				
 		}
 	}
 
@@ -276,7 +279,13 @@ public class ExampleController : MonoBehaviour
 
 	void FlipSprite()
 	{
-		facingRight = !facingRight;
-		transform.Rotate(0, 180, 0);
+		if(inputHorizontal > 0)
+		{
+			gameObject.transform.localScale = new Vector2(1, 1);
+		}
+		if (inputHorizontal < 0)
+		{
+			gameObject.transform.localScale = new Vector2(-1, 1);
+		}
 	}
 }
