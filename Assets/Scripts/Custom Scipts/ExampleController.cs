@@ -87,6 +87,7 @@ public class ExampleController : MonoBehaviour
 		{
 			Death();
 		}
+		SurfaceAllignment();
 	}
 
 	void LoadLevel()
@@ -213,15 +214,22 @@ public class ExampleController : MonoBehaviour
 		m_RB.velocity = Vector2.ClampMagnitude(m_RB.velocity, 1);
 	}
 
-	//private void SurfaceAllignment()
-	//{
-	//	Ray m_Ray = new Ray(transform.position, -transform.up);
-	//	RaycastHit info = new RaycastHit();
+	private void SurfaceAllignment()
+	{
+		Ray m_Ray = new Ray(transform.position, -transform.up);
+		RaycastHit2D info = new RaycastHit2D();
+		info = Physics2D.Raycast(m_Ray.origin, m_Ray.direction, 20f, m_WhatIsGround);
 
-	//	if(Physics.Raycast(m_Ray, out info, m_WhatIsGround))
-	//	{
-	//		Debug.Log(m_Ray);
-	//		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector2.up, info.normal), m_SnapLUT.Evaluate(time));
-	//	}
-	//}
+		//Debug.Log("alignment");
+
+		if (info.collider != null)
+		{
+			//Debug.Log(m_Ray);
+			Debug.DrawRay(m_Ray.origin, m_Ray.direction, Color.yellow, 1.0f);
+			//transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector2.up, info.normal), m_SnapLUT.Evaluate(time));
+
+			Quaternion targetRot = Quaternion.FromToRotation(Vector2.up, info.normal);
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, time);
+		}
+	}
 }

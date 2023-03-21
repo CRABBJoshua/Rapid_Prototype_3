@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CS_Collectable : MonoBehaviour
 {
-	public int CollectableAmount;
+	public static int CollectableAmount;
 	public int MaxCollectableAmount;
 	public GameObject self;
 
@@ -13,6 +13,7 @@ public class CS_Collectable : MonoBehaviour
 		if (collision.gameObject.tag == "Player")
 		{
 			CollectableAmount++;
+			Destroy(gameObject);
 		}
 	}
 }

@@ -23,10 +23,11 @@ public class CS_CountDownTimer : MonoBehaviour
     {
         currentTime -= 1 * Time.deltaTime;
         countdownText.text = currentTime.ToString();
-		CollectableAmount = CollectableScript.GetComponent<CS_Collectable>().CollectableAmount;
+		//CollectableAmount = CollectableScript.GetComponent<CS_Collectable>().CollectableAmount;
+		CollectableAmount = CS_Collectable.CollectableAmount;
 		CollectableText.text = CollectableAmount.ToString();
 
-		if(CollectableAmount == 10)
+		if(CollectableAmount == 100)
 		{
 			CollectableAmount = 0;
 		}
