@@ -25,7 +25,6 @@ public class CS_CountDownTimer : MonoBehaviour
         countdownText.text = currentTime.ToString();
 		//CollectableAmount = CollectableScript.GetComponent<CS_Collectable>().CollectableAmount;
 		CollectableAmount = CS_Collectable.CollectableAmount;
-		CollectableText.text = CollectableAmount.ToString();
 
 		if(CollectableAmount == 100)
 		{
@@ -37,5 +36,7 @@ public class CS_CountDownTimer : MonoBehaviour
             Debug.Log("Quit");
 			SceneManager.LoadScene(1);
 		}
-    }
+
+		CollectableText.text = CollectableAmount.ToString();
+	}
 }

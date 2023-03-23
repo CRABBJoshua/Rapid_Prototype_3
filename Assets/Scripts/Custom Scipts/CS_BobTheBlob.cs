@@ -39,12 +39,18 @@ public class CS_BobTheBlob : MonoBehaviour
 		{
 			Debug.Log("Damage?");
 			Player.TakeDamage(20);
+
+			if (Player.transform.position.y > (transform.position.y) + 0.1)
+			{
+				Debug.Log("Death");
+				Destroy(gameObject);
+			}
 		}
 	}
 
 	void Start()
     {
-        if(isSpriteFacingRight == false)
+        if(isSpriteFacingRight == true)
         {
             direction = -1;
         }

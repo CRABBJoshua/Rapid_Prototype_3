@@ -156,7 +156,6 @@ public class ExampleController : MonoBehaviour
 
 		m_RB.velocity = new Vector2(xSpeed * SpeedFactor, m_RB.velocity.y);
 		m_RB.velocity = Vector2.ClampMagnitude(m_RB.velocity, m_Stats.maxSpeed);
-
 	}
 
 	private void Jump()
@@ -169,7 +168,7 @@ public class ExampleController : MonoBehaviour
 			m_Grounded = false;
 			m_GroundedCheckActive = false;
 			StartCoroutine(C_DelayGroundedCheck());
-		}	
+		}
 		else if (m_JumpingTimer < m_HoverTimer)
 		{
 			//hover FIX THIS
@@ -216,7 +215,7 @@ public class ExampleController : MonoBehaviour
 	{
 		Ray m_Ray = new Ray(transform.position, -transform.up);
 		RaycastHit2D info = new RaycastHit2D();
-		info = Physics2D.Raycast(m_Ray.origin, m_Ray.direction, 20f, m_WhatIsGround);
+		info = Physics2D.Raycast(m_Ray.origin, m_Ray.direction, 1f, m_WhatIsGround);
 
 		//Debug.Log("alignment");
 
@@ -228,6 +227,11 @@ public class ExampleController : MonoBehaviour
 
 			Quaternion targetRot = Quaternion.FromToRotation(Vector2.up, info.normal);
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, time);
+		}
+
+		if(!m_Grounded)
+		{
+			transform.rotation = Quaternion.identity;
 		}
 	}
 
