@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -55,6 +54,7 @@ public class ExampleController : MonoBehaviour
 	private float m_ForceDown = 10f;
 	private float m_HoverForce = 10f;
 	public Vector2 m_VelocityReset;
+	public int m_LevelLoad;
 	float inputHorizontal;
 
 	public int maxHealth = 100;
@@ -82,7 +82,7 @@ public class ExampleController : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			SceneManager.LoadScene(1);
+			SceneManager.LoadScene(0);
 		}
 
 		if (currentHealth <= 0)
@@ -94,7 +94,7 @@ public class ExampleController : MonoBehaviour
 
 	void LoadLevel()
 	{
-		Application.LoadLevel("BetterPlatformer");
+		Application.LoadLevel(m_LevelLoad);
 	}
 
 	void Death()

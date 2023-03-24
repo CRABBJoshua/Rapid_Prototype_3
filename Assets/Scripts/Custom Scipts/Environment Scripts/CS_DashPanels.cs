@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CS_DashPanels : MonoBehaviour
 {
-    private GameObject Player;
+    private ExampleController Player;
     public float SpeedForce;
     public Vector2 ForceDirection;
 
@@ -19,8 +19,8 @@ public class CS_DashPanels : MonoBehaviour
 
     private void Awake()
     {
-       Player = GameObject.FindGameObjectWithTag("Player"); 
-    }
+		Player = GameObject.FindGameObjectWithTag("Player").GetComponent<ExampleController>();
+	}
 
     IEnumerator Boost()
     {

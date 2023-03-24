@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public abstract class FreedomObject : MonoBehaviour
-{
-    public virtual void OnRespawn() { }
+//public abstract class FreedomObject : MonoBehaviour
+//{
+//    public virtual void OnRespawn() { }
 
-    public virtual void OnPlayerMotorContact(PlayerMotor contact) { }
-}
+//    public virtual void OnPlayerMotorContact(PlayerMotor contact) { }
+//}
