@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Moving Platform
+  - Portal1
+  - Portal2
   layers:
   - Default
   - TransparentFX
@@ -44,4 +46,7 @@ TagManager:
     locked: 0
   - name: New Layer
     uniqueID: 3820135613
+    locked: 0
+  - name: Player
+    uniqueID: 421122429
     locked: 0
