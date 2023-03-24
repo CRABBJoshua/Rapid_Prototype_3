@@ -27,13 +27,13 @@ public class ExampleController : MonoBehaviour
 	#endregion
 
 	#region Timers
-	private float m_MovingTimer;
+	public float m_MovingTimer;
 	private float m_JumpingTimer;
 	private float m_RayCastTimer = 20;
 	private float m_HoverTimer = 10;
 	#endregion
 
-	[SerializeField] private PlayerStats m_Stats;
+	[SerializeField] public PlayerStats m_Stats;
 
 	private Rigidbody2D m_RB;
 	[SerializeField] private AnimationCurve m_MomentumLUT;

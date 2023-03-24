@@ -27,7 +27,7 @@ public class Portal : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Player.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             float m_InMove = Player.gameObject.GetComponent<ExampleController>().m_InMove;
 

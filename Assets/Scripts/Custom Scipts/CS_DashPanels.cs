@@ -11,7 +11,7 @@ public class CS_DashPanels : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Dashed!");
-        if (Player.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             StartCoroutine(Boost());
         }
@@ -25,6 +25,8 @@ public class CS_DashPanels : MonoBehaviour
     IEnumerator Boost()
     {
         yield return new WaitForSeconds(0.1f);
-        Player.GetComponent<Rigidbody2D>().AddForce(ForceDirection * SpeedForce, ForceMode2D.Force);
+		//Player.GetComponent<Rigidbody2D>().AddForce(ForceDirection * SpeedForce, ForceMode2D.Force);
+		ExampleController Controller = Player.GetComponent<ExampleController>();
+		Controller.m_MovingTimer = Controller.m_Stats.timeToMaxSpeed;
     }
 }
