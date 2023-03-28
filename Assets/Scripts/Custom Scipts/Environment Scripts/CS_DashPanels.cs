@@ -19,7 +19,7 @@ public class CS_DashPanels : MonoBehaviour
 
     private void Awake()
     {
-		Player = GameObject.FindGameObjectWithTag("Player").GetComponent<ExampleController>();
+		Player = GameObject.Find("Character").GetComponent<ExampleController>();
 	}
 
     IEnumerator Boost()
